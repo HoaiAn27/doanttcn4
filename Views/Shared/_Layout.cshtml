@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<!-- Mirrored from html.themewant.com/echo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 18 Oct 2023 07:44:20 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24/7-News</title>
+    <link rel="shortcut icon" href="~/admin/assets/img/logo1.jpg" type="image/x-icon">
+
+    <link rel="stylesheet preload" href="assets/css/plugins/fontawesome-5.css" as="style">
+    <link rel="stylesheet preload" href="assets/css/vendor/bootstrap.min.css" as="style">
+    <link rel="stylesheet preload" href="assets/css/vendor/swiper.css" as="style">
+    <link rel="stylesheet preload" href="assets/css/vendor/metismenu.css" as="style">
+    <link rel="stylesheet preload" href="assets/css/vendor/magnific-popup.css" as="style">
+    <link rel="stylesheet preload" href="assets/css/style.css" as="style">
+</head>
+
+<body class="home-one">
+    @await Component.InvokeAsync("MenuView")
+    @RenderBody()
+    <!-- Start Footer Area -->
+    <!-- Start Footer Area -->
+    <footer class="echo-footer-area" id="footer">
+        <div class="container">
+            <div class="echo-row">
+                <div class="echo-footer-content-1">
+                    <div class="echo-get-in-tuch">
+                        <h4 class="text-capitalize">Liên hệ</h4>
+                    </div>
+                    <div class="echo-footer-address">
+                        <span class="text-capitalize"><i class="fa-regular fa-map"></i> Đại học Vinh</span>
+                        <span class="text-capitalize"><i class="fa-regular fa-phone"></i>012345678</span>
+                        <span class="text-capitalize">
+                            <i class="fa-sharp fa-regular fa-envelope"></i>
+                            doan123@gmail.com
+                        </span>    
+                    </div>
+                </div>
+                <div class="echo-footer-content-2">
+                    <div class="echo-get-in-tuch">
+                        <h4 class="text-capitalize">Phổ biến</h4>
+                    </div>
+                    <div class="echo-footer-most-popular">
+                        <ul class="list-unstyled">
+                            <li><a href="/list-thoi-su-2.html">Thời sự</a></li>
+                            <li><a href="/list-giao-duc-4.html">Giáo dục</a></li>
+                            <li><a href="/list-phap-luat-5.html">Pháp luật</a></li>
+                            <li><a href="/list-suc-khoe-6.html">Sức khoẻ</a></li>
+                            <li><a href="/list-doi-song-7.html">Đời sống</a></li>
+                            <li><a href="/list-cong-nghe-16.html">Công nghệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="echo-footer-content-3">
+                    <div class="echo-get-in-tuch">
+                        <h4 class="text-capitalize">Hot</h4>
+                    </div>
+                    <div class="echo-footer-help">
+                        <ul class="list-unstyled">
+                            <li><a href="/list-viet-nam-13.html">Thể thao Việt Nam</a></li>
+                            <li><a href="/list-the-gioi-14.html">Thế thao thế giới</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="echo-footer-content-4">
+                    <div class="echo-get-in-tuch">
+                        <h4 class="text-capitalize">Nhận tin mới</h4>
+                    </div>
+                    <div class="echo-footer-news-text">
+                        <p>Đăng ký ngay để nhận thông báo về tin mới.</p>
+                    </div>
+                    <div class="echo-subscribe-box-button">
+                        <form asp-controller="Home" asp-action="Dangky">
+                            <div class="echo-subscribe-input-fill">
+                                <svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path opacity="0.8" d="M14.4414 11.6674C14.4402 11.8345 14.3734 11.9944 14.2553 12.1127C14.1371 12.2309 13.9773 12.2979 13.8101 12.2993H2.34541C2.17792 12.2991 2.01736 12.2325 1.89899 12.114C1.78062 11.9955 1.71413 11.8348 1.71413 11.6674V11.0265H13.1687V3.58109L8.07777 8.16291L1.71413 2.43564V1.48109C1.71413 1.31232 1.78118 1.15045 1.90052 1.03111C2.01986 0.911772 2.18172 0.844727 2.3505 0.844727H13.805C13.9738 0.844727 14.1357 0.911772 14.255 1.03111C14.3744 1.15045 14.4414 1.31232 14.4414 1.48109V11.6674ZM3.26304 2.11745L8.07777 6.45109L12.8925 2.11745H3.26304ZM0.441406 8.48109H5.53232V9.75382H0.441406V8.48109ZM0.441406 5.29927H3.62322V6.572H0.441406V5.29927Z" fill="white" />
+                                </svg>
+                                <input type="email" id="Emaildky3" name="Emaildky" placeholder="Nhập email của bạn..." required maxlength="50">
+                            </div>
+                            <div class="echo-footer-area-subscribe-button">
+                                <button type="submit" onclick="submitForm1(3)">
+                                    <a class="echo-py-btn-border text-capitalize">Đăng ký</a>
+                                </button>          
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="echo-footer-copyright-area">
+                <div class="copyright-area-inner">
+                    <div class="footer-logo"><a href="index.html"><img src="~/admin/assets/img/logo2.png" alt="logo"></a></div>
+                    <div class="copyright-content">
+                        <h5 class="title">© Copyright 2023 by 24/7-News</h5>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer Area -->
+    <!-- End Footer Area -->
+    <!-- Start Scricpt Area -->
+    <!--scroll top button-->
+    <button class="scroll-top-btn">
+        <i class="fa-regular fa-angles-up"></i>
+    </button>
+    <!--scroll top button end-->
+
+    <div id="anywhere-home"></div>
+
+    <script src="assets/js/vendor/jquery.min.js" defer></script>
+    <script src="assets/js/plugins/audio.js" defer></script>
+    <script src="assets/js/vendor/bootstrap.min.js" defer></script>
+    <script src="assets/js/vendor/swiper.js" defer></script>
+    <script src="assets/js/vendor/metisMenu.min.js" defer></script>
+    <script src="assets/js/plugins/audio.js" defer></script>
+    <script src="assets/js/plugins/magnific-popup.js" defer></script>
+    <script src="assets/js/plugins/contact-form.js" defer></script>
+    <script src="assets/js/plugins/resize-sensor.min.js" defer></script>
+    <script src="assets/js/plugins/theia-sticky-sidebar.min.js" defer></script>
+
+    <!-- main js file -->
+    <script src="assets/js/main.js" defer></script>
+    <!-- End Footer Area -->
+    <!--email đăng ký-->
+    <script>
+        function submitForm1(formNumber) {
+            // Kiểm tra xem tất cả các trường thông tin đã được điền đầy đủ
+            var Emaildky = document.getElementById("Emaildky" + formNumber).value;
+            if (Emaildky) {
+                // Hiển thị hộp thoại thông báo đã gửi liên hệ thành công
+                alert("Email đăng ký của bạn đã được gửi thành công!");
+            } else {
+                // Hiển thị thông báo yêu cầu điền đầy đủ thông tin
+                alert("Vui lòng điền đầy đủ thông tin");
+            }
+    </script>
+    <!--kêt thúc email dky-->
+</body>
+
+
+<!-- Mirrored from html.themewant.com/echo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 18 Oct 2023 07:44:52 GMT -->
+</html>

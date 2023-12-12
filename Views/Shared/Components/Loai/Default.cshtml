@@ -1,0 +1,113 @@
+﻿@using doannam4.Models;
+@using doannam4.Utilities;
+@model IList<view_Post_Menu>;
+<!-- Start De-category Area -->
+<section class="echo-de-category-area">
+    <div class="echo-de-category-area-content">
+        <div class="container">
+            <div class="echo-de-category-full-content">
+                <div class="echo-de-category-title-btn">
+                    <h4 class="text-capitalize">Khám phá</h4>
+                </div>
+                <div class="row gx-5">
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="echo-de-category-content echo-responsive-wd">
+                            @foreach (var item in Model.Where(p => p.MenuID == 2).Take(3))
+                        {
+                                <h5 class="text-capitalize">@item.MenuName</h5>
+                                <hr>
+                                string url = Functions.TitleSlugGenaration("post", item.Title, item.PostID);
+                                <div class="echo-de-category-content-img-title">
+                                    <div class="echo-de-category-content-img img-transition-scale">
+                                        <a href="/@url">
+                                            <img src="@item.Images" alt="Echo" class="img-hover">
+                                        </a>
+                                    </div>
+                                    <div class="echo-de-category-content-title">
+                                        <h6>
+                                            <a href="/@url" class="title-hover">
+                                                @item.Title
+                                            </a>
+                                        </h6>
+                                        <div class="echo-de-category-read">
+                                            <a href="#" class="pe-none">
+                                                <i class="fa-light fa-clock"></i> @item.CreateDate.ToString("dd-MM-yyyy")
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                        }
+                            <div class="echo-de-category-show-more-btn">
+                                <a href="/list-thoi-su-2.html" class="text-capitalize echo-py-btn">Xem thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="echo-de-category-content echo-responsive-wd">
+                            @foreach (var item in Model.Where(p => p.MenuID == 4).Take(3))
+                            {
+                                <h5 class="text-capitalize">@item.MenuName</h5>
+                                <hr>
+                                string url = Functions.TitleSlugGenaration("post", item.Title, item.PostID);
+                                <div class="echo-de-category-content-img-title">
+                                    <div class="echo-de-category-content-img img-transition-scale">
+                                        <a href="/@url">
+                                            <img src="@item.Images" alt="Echo" class="img-hover">
+                                        </a>
+                                    </div>
+                                    <div class="echo-de-category-content-title">
+                                        <h6>
+                                            <a href="/@url" class="title-hover">
+                                                @item.Title
+                                            </a>
+                                        </h6>
+                                        <div class="echo-de-category-read">
+                                            <a href="#" class="pe-none">
+                                                <i class="fa-light fa-clock"></i> @item.CreateDate.ToString("dd-MM-yyyy")
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            <div class="echo-de-category-show-more-btn">
+                                <a href="/list-giao-duc-4.html" class="text-capitalize echo-py-btn">Xem thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="echo-de-category-content echo-responsive-wd">
+                            @foreach (var item in Model.Where(p => p.MenuID == 13).Take(3))
+                            {
+                                <h5 class="text-capitalize">@item.MenuName</h5>
+                                <hr>
+                                string url = Functions.TitleSlugGenaration("post", item.Title, item.PostID);
+                                <div class="echo-de-category-content-img-title">
+                                    <div class="echo-de-category-content-img img-transition-scale">
+                                        <a href="/@url">
+                                            <img src="@item.Images" alt="Echo" class="img-hover">
+                                        </a>
+                                    </div>
+                                    <div class="echo-de-category-content-title">
+                                        <h6>
+                                            <a href="/@url" class="title-hover">
+                                                @item.Title
+                                            </a>
+                                        </h6>
+                                        <div class="echo-de-category-read">
+                                            <a href="#" class="pe-none">
+                                                <i class="fa-light fa-clock"></i> @item.CreateDate.ToString("dd-MM-yyyy")
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            <div class="echo-de-category-show-more-btn">
+                                <a href="/list-viet-nam-13.html" class="text-capitalize echo-py-btn">Xem thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,66 @@
+﻿@using doannam4.Models;
+@using doannam4.Utilities;
+@model IList<view_Post_Menu>;
+<!-- Start Trending News Area -->
+<section class="echo-trending-area">
+    <div class="echo-trending-content">
+        <div class="container">
+            <h6>Trending</h6>
+            <div class="echo-trending-full-content">
+                <div class="row gx-6">
+                    <div class="col-xl-6 col-lg-6 col-md-12">
+                        @foreach (var item in Model.Where(p => p.MenuID == 15).Take(4))
+                            {
+                            string url = Functions.TitleSlugGenaration("post", item.Title, item.PostID);
+                            <div class="echo-trending-left-site-post">
+                                <div class="echo-trending-left-site-post-img img-transition-scale">
+                                    <a href="/@url">
+                                        <img src="@item.Images" alt="Echo" class="img-hover">
+                                    </a>
+                                </div>
+                                <div class="echo-trending-right-site-post-title">
+                                    <h5>
+                                        <a href="/@url" class="text-capitalize title-hover">
+                                            @item.Title
+                                        </a>
+                                    </h5>
+                                    <div class="echo-trending-post-bottom-icons">
+                                        <a href="#" class="pe-none"><i class="fa-light fa-clock"></i>@item.CreateDate.ToString("dd-MM-yyyy")</a>
+                                    </div>
+                                </div>
+                            </div>
+                            }
+                                               
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12">
+                         @foreach (var item in Model.Where(p => p.MenuID == 14).Take(2))
+                            {
+                            string url = Functions.TitleSlugGenaration("post", item.Title, item.PostID);
+                            <div class="echo-trending-right-site-post">                            
+                                <div class="echo-trending-right-site-post-img img-transition-scale">
+                                    <a href="/@url">
+                                        <img src="@item.Images" alt="Echo" class="img-hover">
+                                    </a>
+                                </div>
+                                <div class="echo-trending-right-site-post-title">
+                                    <h4 class="text-capitalize">
+                                        <a href="/@url" class="title-hover">
+                                           @item.Title
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div class="echo-trending-right-site-like-comment-share-icons">
+                                    <div class="echo-trending-right-like-comment-content">
+                                        <a href="#" class="pe-none"><i class="fa-light fa-clock"></i>@item.CreateDate.ToString("dd-MM-yyyy")</a>
+                                    </div>       
+                                </div>
+                            </div>
+                            <hr class="echo-hr-home-1-tranding">
+                            }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Trending News Area -->

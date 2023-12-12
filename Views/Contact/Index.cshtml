@@ -1,0 +1,109 @@
+﻿@using doannam4.Utilities
+@model doannam4.Models.Contact
+ <!-- rts breadcrumba area start -->
+<div class="echo-breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- bread crumb inner wrapper -->
+                <div class="breadcrumb-inner text-center">
+                    <div class="meta">
+                        <a href="#" class="prev">24/7-News/</a>
+                        <a href="#" class="next">Liên hệ</a>
+                    </div>
+                    <h1 class="title">Liên hệ</h1>
+                </div>
+                <!-- bread crumb inner wrapper end -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- rts breadcrumba area end -->
+<!-- end breadcrumb area -->
+<!-- Start Contact Area -->
+<section class="echo-contact-area">
+    <div class="echo-contact-content">
+        <div class="container">
+            <div class="echo-contact-full-content">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="echo-contact-input-field">
+                            <div class="echo-contact-title">
+                                <h2 class="text-capitalize">Chăm Sóc Khách Hàng & Hỗ Trợ Kỹ Thuật</h2>
+                            </div>      
+                            <div class="echo-main-contact-form">
+                                <div id="form-messages"></div>
+                                <form asp-controller="Contact" asp-action="Index" method="post">
+                                    <div class="echo-contact-input-flexing">
+                                        <div class="echo-contact-name echo-df-input">
+                                            <input id="Name" name="name" type="text" asp-for="Name" placeholder="Nhập tên" required maxlength="50">
+                                        </div>
+                                        <div class="echo-contact-email echo-df-input">
+                                            <input id="Email" name="email" type="email" asp-for="Email" placeholder="Nhập email" required maxlength="50">
+                                        </div>
+                                    </div>
+                                    <div class="echo-contact-input-flexing echo-df-input">
+                                        <div class="echo-contact-number echo-df-input">
+                                            <input id="Phone" name="phone" type="text" asp-for="Phone" placeholder="Số điện thoại" required maxlength="9">
+                                        </div>
+                                        <div class="echo-contact-url echo-df-input">
+                                            <input id="Subject" name="subject" type="text" asp-for="Subject" placeholder="Thể loại" maxlength="50">
+                                        </div>
+                                    </div>
+                                    <div class="echo-contact-texting-fild">
+                                        <textarea id="Message" name="message" asp-for="Message" placeholder="Lời nhắn"></textarea>
+                                    </div>
+                                    <button type="submit" class="echo-contact-btn" onclick="submitForm()">Gửi ngay<i class="fa-regular fa-arrow-right"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="echo-info">
+                            <div class="echo-address">
+                                <h6 class="text-capitalize">Địa chỉ</h6>
+                                <span>Đại học Vinh</span>
+                            </div>
+                            <div class="echo-address">
+                                <h6 class="text-capitalize">Email</h6>
+                                <span>doan123@gmail.com</span>
+                            </div>
+                            <div class="echo-address">
+                                <h6 class="text-capitalize">SĐT</h6>
+                                <span>012345678</span>
+                            </div>
+                            <div class="echo-map">
+                                <iframe class="contact-map" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14602.288851207937!2d90.47855065!3d23.798243149999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1663151706353!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Contact Area -->
+<style>
+    .d-none {
+        display: none;
+    }
+</style>
+<script>
+    function submitForm() {
+        // Kiểm tra xem tất cả các trường thông tin đã được điền đầy đủ
+        var name = document.getElementById("Name").value;
+        var email = document.getElementById("Email").value;
+        var phone = document.getElementById("Phone").value;
+        var subject = document.getElementById("Subject").value;
+        var message = document.getElementById("Message").value;
+
+        if (name && email && phone && message) {
+            // Hiển thị hộp thoại thông báo đã gửi liên hệ thành công
+            alert("Liên hệ của bạn đã được gửi thành công!");
+        } else {
+            // Hiển thị thông báo yêu cầu điền đầy đủ thông tin
+            alert("Vui lòng điền đầy đủ thông tin");
+        }
+    }
+</script>

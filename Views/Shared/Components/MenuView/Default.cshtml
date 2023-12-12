@@ -1,0 +1,318 @@
+﻿@model IList<Menu>
+@using doannam4.Utilities
+<!-- Start Top Header Area -->
+<!-- Start Top Header Area -->
+<header class="echo-header-area">
+    <div class="echo-header-top">
+        <div class="container">
+            <div class="echo-full-header-top">
+                <div class="row align-items-center plr_md--30">
+                    <div class="col-xl-4 col-lg-4 d-none d-lg-block">
+                        <div class="echo-meta-total-jobs">
+                            <div class="echo-meta-jobs-icons">
+                                <img src="assets/images/home-1/header-top/home-1-header-top.png" alt="Echo">
+                            </div>
+                            <div class="echo-meta-jobs-text">
+                                <div class="swiper rt-treding-slider10">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <span>Chính thống...</span>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <span>Cập nhật liên tục...</span>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <span>24/7...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--ngày, giờ-->
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-7 col-8">
+                        <div class="echo-header-top-date">
+                            <div class="echo-day-name">
+                                <span><i class="fa-regular fa-calendar"></i></span>                       
+                                <span id="vietnam-time"></span>
+                                <span id="date"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end ngày giờ-->
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-5 col-4 position-relative">
+                        <div class="echo-header-top-subs-social-menu">
+                            <div class="echo-header-top-subs-social">
+                                <div class="echo-header-top-subscribe-btn">
+                                    <a href="#" class="echo-py-btn" onclick="document.getElementById('id01').style.display='inline'"><i class="fa-regular fa-envelope"></i>Đăng ký</a>
+                                </div>
+                                <div class="echo-header-top-social-media">
+                                    <div class="rts-darkmode">
+                                        <a id="rts-data-toggle" class="rts-dark-light">
+                                            <i class="rts-go-dark fal fa-moon"></i>
+                                            <i class="rts-go-light far fa-sun"></i>
+                                        </a>
+                                    </div>
+                                    <!--Tìm kiếm-->
+                                    <a href="#" id="search" class="echo-header-top-search-btn search-icon action-item icon">
+                                        <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9.11544 16.961C13.3484 16.961 16.7798 13.5296 16.7798 9.29665C16.7798 5.06373 13.3484 1.63226 9.11544 1.63226C4.88251 1.63226 1.45105 5.06373 1.45105 9.29665C1.45105 13.5296 4.88251 16.961 9.11544 16.961Z" stroke="#5E5E5E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M14.4461 15.0254L17.451 18.0225" stroke="#5E5E5E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </a>
+                                    <div class="search-input-area">
+                                        <div class="container">
+                                            <form method="get" asp-controller="Search" asp-action="Index">
+                                                <div class="search-input-inner">
+                                                    <div class="input-div">
+                                                        <input id="searchInput1" class="search-input" type="text" name="searchTerm" placeholder="Nhập từ tìm kiếm...">
+                                                    </div>
+                                                    <div class="search-close-icon">
+                                                        <button type="submit" class="search-button">Tìm kiếm</button>
+                                                    </div>                                              
+                                                </div>
+                                            </form>                     
+                                        </div>
+                                    </div>
+                                    <!--end tìm kiếm-->
+                                </div>
+                                <!--3 gạch-->
+                                <div class="echo-header-top-menu-bar menu-btn">
+                                    <a href="javascript:void(0)">
+                                        <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0.526001 0.953461H20V3.11724H0.526001V0.953461ZM7.01733 8.52668H20V10.6905H7.01733V8.52668ZM0.526001 16.0999H20V18.2637H0.526001V16.0999Z" fill="#5E5E5E" />
+                                        </svg>
+                                    </a>
+                                </div>
+                                <!--end 3 gạch-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Start Home-1 Menu & Site Logo & Social Media -->
+    <div class="echo-home-1-menu">
+        <div class="echo-site-main-logo-menu-social">
+            <div class="container">
+                <div class="row align-items-center plr_md--30 plr_sm--30 plr--10">
+                    <div class="col-xl-2 col-lg-2 col-md-7 col-sm-7 col-7">
+                        <div class="echo-site-logo">
+                            <a class="logo-light" asp-controller="home" asp-action="index"><img src="~/admin/assets/img/logo2.png" alt="24/7-News"></a>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-9 d-none d-lg-block">
+                        <nav>
+                            <div class="echo-home-1-menu">
+                                <ul class="list-unstyled echo-desktop-menu">
+                                    @foreach (var menu in Model.Where(m => m.Levels == 1).OrderBy(n => n.MenuOrder))
+                                    {
+                                        <!--Thêm thuchanh5-->
+                                        var Pid = menu.MenuID;
+                                        
+                                        string url = Functions.TitleSlugGenaration("list", menu.MenuName, menu.MenuID);
+                                        if (!string.IsNullOrEmpty(menu.Link))
+                                        {
+                                        url = menu.Link;
+                                        }
+                                        
+                                        var Smenu = Model.Where(p => p.ParentID == Pid).OrderBy(p => p.MenuOrder).ToList();
+
+                                        @if (Smenu.Count == 0)
+                                        {
+                                            <li class="menu-item"><a href="/@url" class="echo-dropdown-main-element">@menu.MenuName</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="menu-item echo-has-dropdown">
+                                                <a href="#" class="echo-dropdown-main-element active">@menu.MenuName</a>
+                                                <ul class="echo-submenu list-unstyled menu-home">
+                                                   
+                                                        @foreach (var smn in Smenu)
+                                                        {
+                                                            
+                                                            string url1 = Functions.TitleSlugGenaration("list", smn.MenuName, smn.MenuID);
+                                                            if (!string.IsNullOrEmpty(smn.Link))
+                                                            {
+                                                            url = smn.Link;
+                                                            }
+                                                            <li class="nav-item">
+                                                                <a class="mobile-menu-link" href="/@url1">@smn.MenuName</a>
+                                                            </li>
+
+                                                        }
+                                                </ul>
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                    <!--3 gạch-->
+                    <div class="col-xl-1 col-lg-1 col-md-5 col-sm-5 col-5">
+                        <div class="echo-home-1-social-media-icons">
+                            <div class="echo-header-top-menu-bar menu-btn">
+                                <a href="javascript:void(0)">
+                                    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.526001 0.953461H20V3.11724H0.526001V0.953461ZM7.01733 8.52668H20V10.6905H7.01733V8.52668ZM0.526001 16.0999H20V18.2637H0.526001V16.0999Z" fill="#5E5E5E" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end 3 gạch-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Home-1 Menu & Site Logo & Social Media -->
+</header>
+<!-- End Top Header Area -->
+
+<!-- side bar for desktop -->
+<div id="side-bar" class="side-bar header-one">
+    <!--Trên-->
+    <div class="inner">
+        <button class="close-icon-menu"><i class="far fa-times"></i></button>
+        <!-- inner menu area desktop start -->
+        <div class="inner-main-wrapper-desk d-none d-lg-block">
+            <div class="inner-content">
+                <div class="newsletter-form">
+                    <div class="form-inner">
+                        <div class="content">
+                            <div class="newsletter-image">
+                                <img src="assets/images/home-1/feature-right/news-item-1.png" alt="">
+                            </div>
+                            <h3 class="title">Nhận bản tin mới</h3>
+                            <p class="desc">Thông báo về bản tin mới, cập nhật nhanh</p>
+                        </div>
+                        <form asp-action="Dangky">
+                            <div class="input-div">
+                                <input type="email" id="Emaildky1" name="Emaildky" placeholder="Nhập email của bạn..." required maxlength="50">
+                            </div>
+                            <button type="submit" class="subscribe-btn" onclick="submitForm1(1)">Đăng ký ngay</button>
+                        </form>                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Điện thoại-->
+    <!-- mobile menu area start -->
+    <div class="mobile-menu d-block d-lg-none">
+        <nav class="nav-main mainmenu-nav mt--30">
+            <ul class="mainmenu" id="mobile-menu-active">
+                @foreach (var menu in Model.Where(m => m.Levels == 1).OrderBy(n => n.MenuOrder))
+                {
+                    <!--Thêm thuchanh5-->
+                    var Pid = menu.MenuID;
+                    string url = Functions.TitleSlugGenaration("list", menu.MenuName, menu.MenuID);
+                    if (!string.IsNullOrEmpty(menu.Link))
+                    {
+                        url = menu.Link;
+                    }
+ 
+
+                    var Smenu = Model.Where(p => p.ParentID == Pid).OrderBy(p => p.MenuOrder).ToList();
+
+                    @if (Smenu.Count == 0)
+                    {
+                        <li class="menu-item"><a class="main mobile-menu-link" href="/@url">@menu.MenuName</a></li>                     
+                    }
+                    else
+                    {
+                        <li class="has-droupdown">
+                            <a href="#" class="main">@menu.MenuName</a>
+                            <ul class="submenu">
+                                <li>
+                                    @foreach (var smn in Smenu)
+                                    { 
+                                        string url1 = Functions.TitleSlugGenaration("list", smn.MenuName, smn.MenuID);
+                                        if (!string.IsNullOrEmpty(smn.Link))
+                                        {
+                                            url = smn.Link;
+                                        }
+                                        
+                                        <a class="mobile-menu-link" href="/@url1">@smn.MenuName</a>
+                                    }
+                                </li>                   
+                            </ul>
+                        </li>
+                    }
+                }
+            </ul>
+        </nav>
+    </div>
+    <!-- mobile menu area end -->
+</div>
+<!-- header style two End -->
+
+<!--Nút sub-->
+<!-- Start Subscribe Popup Box -->
+<div class="echo-popup-model" id="id01">
+    <div class="echo-popup-transition">
+        <div class="model-content animate-subscribe-popup">
+            <a href="javascript:void(0)" onclick="document.getElementById('id01').style.display='none'"><i class="fa-regular fa-xmark"></i></a>
+            <div class="echo-p-flexing">
+                <div class="echo-p-img">
+                    <img src="assets/images/home-1/feature-right/news-item-1.png" alt="Echo">
+                </div>
+                <div class="form">
+                    <div class="echo-p-sub-heading">
+                        <p>Cập nhật hàng tuần</p>
+                    </div>
+                    <div class="echo-p-sub-heading">
+                        <h3>Hãy tham gia bản tin của chúng tôi!</h3>
+                    </div>
+                    <form asp-action="Dangky">
+                        <input type="email" id="Emaildky2" name="Emaildky" placeholder="Nhập email của bạn..." required maxlength="50">
+                        <button type="submit" onclick="submitForm1(2)">Đăng ký ngay</button>
+                    </form>
+                    <div class="echo-bottom-popup">
+                        <p>Đừng lo lắng chúng tôi không spam!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Subscribe Popup Box -->
+<!-- End Top Header Area -->
+<!-- Top To Scroll -->
+<!-- End Top scroll -->
+<script>
+    function updateDateTime() {
+        var dateElement = document.getElementById("date");
+        var vietnamTimeElement = document.getElementById("vietnam-time");
+
+        var currentDate = new Date();
+
+        // Định dạng ngày và giờ theo yêu cầu và ngôn ngữ tiếng Việt
+        var options = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+        var formatter = new Intl.DateTimeFormat('vi-VN', options);
+        var formattedDateTime = formatter.format(currentDate);
+
+        dateElement.textContent = formattedDateTime;
+        vietnamTimeElement.textContent = ""; // Bạn muốn thêm giờ Việt Nam ở đây
+    }
+
+    // Gọi hàm cập nhật ngày và giờ khi trang web được tải
+    updateDateTime();
+
+    function submitForm1(formNumber) {
+        // Kiểm tra xem tất cả các trường thông tin đã được điền đầy đủ
+        var Emaildky = document.getElementById("Emaildky" + formNumber).value;
+        if (Emaildky) {
+            // Hiển thị hộp thoại thông báo đã gửi liên hệ thành công
+            alert("Email đăng ký của bạn đã được gửi thành công!");
+        } else {
+            // Hiển thị thông báo yêu cầu điền đầy đủ thông tin
+            alert("Vui lòng điền đầy đủ thông tin");
+        }
+    }
+</script>
+
+
+

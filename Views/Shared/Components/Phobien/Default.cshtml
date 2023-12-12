@@ -1,0 +1,86 @@
+﻿@using doannam4.Models;
+@using doannam4.Utilities;
+@model IList<view_Post_Access>;
+<!-- Start Hero Area -->
+<section class="echo-hero-section">
+    <div class="echo-hero">
+        <div class="container">
+            <div class="echo-full-hero-content">
+                <div class="row gx-5">
+                    @{
+                        string url = Functions.TitleSlugGenaration("post", Model[0].Title, Model[0].PostID);
+                        string url1 = Functions.TitleSlugGenaration("post", Model[1].Title, Model[1].PostID);
+                        string url2 = Functions.TitleSlugGenaration("post", Model[2].Title, Model[2].PostID);
+                        string url3 = Functions.TitleSlugGenaration("post", Model[3].Title, Model[3].PostID);
+                        string url4 = Functions.TitleSlugGenaration("post", Model[4].Title, Model[4].PostID);
+                    }
+                    <div class="col-xl-8 col-lg-7 col-md-12">
+                        <div class="echo-hero-baner">
+                            <div class="echo-hero-banner-main-img  img-transition-scale">
+                                <a href="/@url"><img class="banner-image-one img-hover" src="@Model[0].Images" alt="Echo"></a>
+                            </div>
+                            <h1 class="echo-hero-title text-capitalize font-weight-bold"><a href="/@url" class="title-hover">@Model[0].Title</a></h1>
+                            <hr>
+                            <p class="echo-hero-discription">
+                                @Model[0].Abstract
+                            </p>
+                            <div class="echo-hero-area-titlepost-post-like-comment-share">
+                                <div class="echo-hero-area-like-read-comment-share">
+                                    <a href="#"><i class="fa-light fa-clock"></i>@Model[0].CreateDate.ToString("dd-MM-yyyy")</a>
+                                </div>
+                                <div class="echo-hero-area-like-read-comment-share">
+                                    <a href="#"><i class="fa-light fa-eye"></i>@Model[0].AccessCount</a>
+                                </div>   
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-5 col-md-12">
+                        <div class="echo-home-1-hero-area-top-story">
+                            <h6>Phổ biến</h6>
+                            <div class="echo-top-story first">
+                                <div class="echo-story-picture img-transition-scale">
+                                    <a href="/@url1"><img src="@Model[1].Images" alt="Echo" class="img-hover"></a>
+                                </div>
+                                <div class="echo-story-text">
+                                    <h4><a href="/@url1" class="title-hover">@Model[1].Title</a></h4>
+                                    <div class="echo-trending-post-bottom-icons">
+                                        <a href="#" class="pe-none"><i class="fa-light fa-clock"></i>@Model[1].CreateDate.ToString("dd-MM-yyyy")</a>
+                                        <a href="#" class="pe-none"><i class="fa-light fa-eye"></i>@Model[1].AccessCount</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="echo-top-story">
+                                <div class="echo-story-picture img-transition-scale">
+                                    <a href="/@url2"><img src="@Model[2].Images" alt="Echo" class="img-hover"></a>
+                                </div>
+                                <div class="echo-story-text">
+                                    <h4><a href="/@url2" class="title-hover">@(Model[2].Title.Length >=27? @Model[2].Title.Substring(0, 27) + "..." : @Model[2].Title)</a></h4>
+                                    <a href="#" class="pe-none"><i class="fa-light fa-clock"></i>@Model[2].CreateDate.ToString("dd-MM-yyyy")</a>
+                                </div>
+                            </div>
+                            <div class="echo-top-story">
+                                <div class="echo-story-picture img-transition-scale">
+                                    <a href="/@url3"><img src="@Model[3].Images" alt="Echo" class="img-hover"></a>
+                                </div>
+                                <div class="echo-story-text">
+                                    <h4><a href="/@url3" class="title-hover">@(Model[3].Title.Length >= 27 ? @Model[3].Title.Substring(0, 27) + "..." : @Model[3].Title)</a></h4>
+                                    <a href="#" class="pe-none"><i class="fa-light fa-clock"></i>@Model[3].CreateDate.ToString("dd-MM-yyyy")</a>
+                                </div>
+                            </div>
+                            <div class="echo-top-story">
+                                <div class="echo-story-picture img-transition-scale">
+                                    <a href="/@url4"><img src="@Model[4].Images" alt="Echo" class="img-hover"></a>
+                                </div>
+                                <div class="echo-story-text">
+                                    <h4><a href="/@url4" class="title-hover">@(Model[4].Title.Length >= 27 ? @Model[4].Title.Substring(0, 27) + "..." : @Model[4].Title)</a></h4>
+                                    <a href="#" class="pe-none"><i class="fa-light fa-clock"></i>@Model[4].CreateDate.ToString("dd-MM-yyyy")</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero Area -->

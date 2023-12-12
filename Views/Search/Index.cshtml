@@ -1,0 +1,145 @@
+﻿@using doannam4.Models;
+@using doannam4.Utilities;
+@model List<Post>
+
+<div class="echo-breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- bread crumb inner wrapper -->
+                <div class="breadcrumb-inner text-center">
+                    <div class="meta">
+                        <a href="#" class="prev">Kết quả tìm kiếm</a>
+                    </div>
+                </div>
+                <!-- bread crumb inner wrapper end -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- rts breadcrumba area end -->
+<!-- end breadcrumb area -->
+
+
+<section class="echo-hero-section inner inner-2">
+    <div class="echo-hero">
+        <div class="container">
+            <div class="echo-full-hero-content">
+                <div class="row gx-5 sticky-coloum-wrap">
+                    <div class="col-xl-8 col-lg-8">
+                         @if (Model.Count > 0)
+                         {
+                            @foreach(var item in Model)
+                                {
+                                    string url = Functions.TitleSlugGenaration("post", item.Title, item.PostID);
+                                    <div class="echo-hero-baner">
+                                        <div class="echo-inner-img-ct-1  img-transition-scale">
+                                            <a href="/@url"><img src="@item.Images"></a>
+                                        </div>
+                                        <div class="echo-banner-texting">
+                                            <h3 class="echo-hero-title text-capitalize font-weight-bold"><a href="/@url" class="title-hover">@item.Title</a></h3>
+                                            <div class="echo-hero-area-titlepost-post-like-comment-share">
+                                                <div class="echo-hero-area-like-read-comment-share">
+                                                    <a href="#"><i class="fa-light fa-clock"></i>@item.CreateDate.ToString("dd/MM/yyyy")</a>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <p class="echo-hero-discription">@item.Abstract</p>
+                                        </div>
+                                    </div>
+                                }
+                         }
+                        else
+                        {
+                            <p>Không tìm thấy kết quả phù hợp.</p>
+                        }                          
+                    </div>
+                    <div class="col-xl-4 col-lg-4 sticky-coloum-item">
+                        <div class="echo-right-ct-1">
+                            <div class="echo-popular-hl-img">
+                                <div class="echo-home-2-title">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="echo-home-2-main-title">
+                                                <h5 class="text-capitalize text-center">Popular Categories</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="echo-popular-item">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <a href="category-style-1.html">
+                                                <h5>Fashion & Life Style</h5>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="category-style-1.html">
+                                                <h5>Relationship</h5>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="category-style-1.html">
+                                                <h5>Art & Culture</h5>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="category-style-1.html">
+                                                <h5>Self Development</h5>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="category-style-1.html">
+                                                <h5>travel & tourism</h5>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="echo-home-1-hero-area-top-story">
+                                <h5 class="text-center">Top Story</h5>
+                                <div class="echo-top-story">
+                                    <div class="echo-story-picture img-transition-scale">
+                                        <a href="post-details.html"><img src="assets/images/category-style-1/item-9.png" alt="Echo" class="img-hover"></a>
+                                    </div>
+                                    <div class="echo-story-text">
+                                        <h6><a href="#" class="title-hover">14 Tight Samurai Games You...</a></h6>
+                                        <a href="#" class="pe-none"><i class="fa-light fa-clock"></i> 06 minute read</a>
+                                    </div>
+                                </div>
+                                <div class="echo-top-story">
+                                    <div class="echo-story-picture img-transition-scale">
+                                        <a href="post-details.html"><img src="assets/images/category-style-1/item-6.png" alt="Echo" class="img-hover"></a>
+                                    </div>
+                                    <div class="echo-story-text">
+                                        <h6><a href="#" class="title-hover">The Google Pixel Fold looks...</a></h6>
+                                        <a href="#" class="pe-none"><i class="fa-light fa-clock"></i> 06 minute read</a>
+                                    </div>
+                                </div>
+                                <div class="echo-top-story">
+                                    <div class="echo-story-picture img-transition-scale">
+                                        <a href="post-details.html"><img src="assets/images/category-style-1/item-7.png" alt="Echo" class="img-hover"></a>
+                                    </div>
+                                    <div class="echo-story-text">
+                                        <h6><a href="#" class="title-hover">ChatGPT returns to Italy after ban</a></h6>
+                                        <a href="#" class="pe-none"><i class="fa-light fa-clock"></i> 06 minute read</a>
+                                    </div>
+                                </div>
+                                <div class="echo-top-story">
+                                    <div class="echo-story-picture img-transition-scale">
+                                        <a href="post-details.html"><img src="assets/images/category-style-1/item-8.png" alt="Echo" class="img-hover"></a>
+                                    </div>
+                                    <div class="echo-story-text">
+                                        <h6><a href="#" class="title-hover">Avatar: The Way Of Water - how...</a></h6>
+                                        <a href="#" class="pe-none"><i class="fa-light fa-clock"></i> 06 minute read</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

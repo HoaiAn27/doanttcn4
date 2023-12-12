@@ -1,0 +1,59 @@
+﻿@using doannam4.Models;
+@using doannam4.Utilities;
+@model IList<Comment>;
+
+<!-- Các bình luận -->
+
+@if (TempData["CommentMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["CommentMessage"]
+    </div>
+}
+<div class="echo-reply-area">
+    <h5 class="title">Các bình luận</h5>
+    <ul class="comment-inner">
+        @if (Model.Any(m => m.PostID == Functions._PostID))
+        {
+            @foreach (var item in Model.Where(m => m.PostID == Functions._PostID))
+            {
+                <li class="wrapper">
+                    <div class="image-area">
+                        <img src="assets/images/home-1/trending-left/commentator-1.png" alt="author">
+                    </div>
+                    <div class="content">
+                        <h5 class="title">@item.NameUs</h5>
+                        <a href="#" class="pe-none">@item.CreateDate.ToString("dd-MM-yyyy")</a>
+                        <p class="desc">@item.ContentCm</p>
+                    </div>
+                    <div class="reply"><i class="fa-regular fa-share"></i> Reply</div>
+                </li>
+            }
+        }
+        else
+        {
+            <p>Chưa có bình luận cho bài viết này.</p>
+        }
+    </ul>
+</div>
+<div class="echo-comment-box">
+    <div class="comment-box-inner">
+        <h5 class="title">Để lại bình luận</h5>
+        <form asp-controller="Comment" asp-action="AddComment">
+            <div class="row">
+                <div class="col-lg-6">
+                    <input type="text" name="NameUs" placeholder="Tên của bạn" required maxlength="50">
+                </div>
+                <div class="col-lg-6">
+                    <input type="email" name="Email" placeholder="Email của bạn" required maxlength="50">
+                </div>
+                <div class="col-lg-12">
+                    <textarea type="text" name="ContentCm" placeholder="Lời bình luận"></textarea>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="submit-btn">Gửi ngay</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
