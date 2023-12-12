@@ -1,0 +1,74 @@
+﻿@using doannam4.Models;
+
+@model IList<Comment>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Danh sách bình luận</h2>
+    </div>
+    <p>
+    </p>
+    <section class="section dashboard">
+        <div class="row">
+            <div class="col-12">
+                <div class="card recent-sales overflow-auto">
+                    <div class="card-body mt-4">
+                        <table class="table table-borderless datatable">
+                            <thead>
+                                <tr>
+                                    <th class="col-1 text-center">#</th>
+                                    <th class="col-3 text-center">NameUs</th>
+                                    <th class="col-2 text-center">Email</th>
+                                    <th class="col-2 text-center">ContentCm</th>
+                                    <th class="col-2 text-center">CreateDate</th>
+                                    <th class="col-2 text-center">PostID</th>
+                                    <th class="col-2 text-center">Hide/Show</th>
+                                    <th class="col-2 text-center">Function</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <th class="text-center" scope="row">@item.CommentID</th>
+                                        <td>
+                                            <a asp-area="Admin" asp-controller="Comment" asp-action="Details"
+                                           asp-route-id="@item.CommentID" class="text-primary">@item.NameUs</a>
+                                        </td>
+
+                                        <td>
+                                            <a asp-area="Admin" asp-controller="Comment" asp-action="Details"
+                                           asp-route-id="@item.CommentID" class="text-primary">@item.Email</a>
+
+                                        <td>
+                                            <a asp-area="Admin" asp-controller="Comment" asp-action="Details"
+                                           asp-route-id="@item.CommentID" class="text-primary">@item.ContentCm</a>
+                                        </td>
+
+                                        <td>
+                                            <a asp-area="Admin" asp-controller="Comment" asp-action="Details"
+                                           asp-route-id="@item.CommentID" class="text-primary">@item.CreateDate</a>
+                                        </td>
+
+                                        <td class="text-center">@item.PostID</td>
+
+                                        <td class="text-center">@item.IsActive</td>
+
+                                        <td class="text-center">
+                                            <a asp-area="Admin" asp-controller="Comment" asp-action="Delete"
+                                           asp-route-id="@item.CommentID" class="btn btn-danger btn-sm"
+                                           title="Xoá bình luận"><i class="bi bi-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

@@ -1,0 +1,74 @@
+﻿@using doannam4.Models;
+
+@model IList<Contact>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Danh sách liên hệ</h2>
+    </div>
+    <p>
+    </p>
+    <section class="section dashboard">
+        <div class="row">
+            <div class="col-12">
+                <div class="card recent-sales overflow-auto">
+                    <div class="card-body mt-4">
+                        <table class="table table-borderless datatable">
+                            <thead>
+                                <tr>
+                                    <th class="col-1 text-center">#</th>
+                                    <th class="col-3 text-center">Name</th>
+                                    <th class="col-2 text-center">Email</th>
+                                    <th class="col-2 text-center">Phone</th>
+                                    <th class="col-2 text-center">Subject</th>
+                                    <th class="col-2 text-center">Message</th>
+                                    <th class="col-2 text-center">Function</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <th class="text-center" scope="row">@item.ContactID</th>
+                                        <td>
+                                            <a asp-area="Admin" asp-controller="Contact" asp-action="Details"
+                                           asp-route-id="@item.ContactID" class="text-primary">@item.Name</a>
+                                        </td>
+
+                                        <td>
+                                            <a asp-area="Admin" asp-controller="Contact" asp-action="Details"
+                                           asp-route-id="@item.ContactID" class="text-primary">@item.Email</a>
+
+                                        <td>
+                                            <a asp-area="Admin" asp-controller="Contact" asp-action="Details"
+                                           asp-route-id="@item.ContactID" class="text-primary">@item.Phone</a>
+                                        </td>
+
+                                        <td>
+                                            <a asp-area="Admin" asp-controller="Contact" asp-action="Details"
+                                           asp-route-id="@item.ContactID" class="text-primary">@item.Subject</a>
+                                        </td>
+
+                                        <td>
+                                            <a asp-area="Admin" asp-controller="Contact" asp-action="Details"
+                                           asp-route-id="@item.ContactID" class="text-primary">@item.Message</a>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <a asp-area="Admin" asp-controller="Contact" asp-action="Delete"
+                                           asp-route-id="@item.ContactID" class="btn btn-danger btn-sm"
+                                           title="Xoá liên hệ"><i class="bi bi-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

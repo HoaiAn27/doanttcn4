@@ -1,0 +1,57 @@
+﻿@using doannam4.Areas.Admin.Models
+@using doannam4.Models;
+
+@model IList<AdminUser>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Danh sách tài khoản</h2>
+    </div>
+    <section class="section dashboard">
+        <div class="row">
+            <div class="col-12">
+                <div class="card recent-sales overflow-auto">
+                    <div class="card-body mt-4">
+                        <table class="table table-borderless datatable">
+                            <thead>
+                                <tr>
+                                    <th class="col-1 text-center">#</th>
+                                    <th class="col-1 text-center">Username</th>
+                                    <th class="col-5 text-center">Email</th> 
+                                    <th class="col-1 text-center">Password</th>
+                                    <th class="col-1 text-center">Hide/Show</th>  
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <th class="text-center" scope="row">@item.UserID</th>
+                                        <td>
+                                            <a asp-area="Admin" asp-controller="Post" asp-action="Index"
+                                           asp-route-id="@item.UserID" class="text-primary">@item.UserName</a>
+                                        </td>
+
+                                        <td>
+                                            <a asp-area="Admin" asp-controller="Post" asp-action="Index"
+                                           asp-route-id="@item.UserID" class="text-primary">@item.Email</a>
+                                        </td>
+                                        <td>
+                                            <a asp-area="Admin" asp-controller="Post" asp-action="Index"
+                                           asp-route-id="@item.UserID" class="text-primary">@item.Password</a>
+                                        </td>
+                                        <td class="text-center">@item.IsActive</td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
